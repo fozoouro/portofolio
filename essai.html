@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Dynamique</title>
+    <style>
+        .section {
+            display: none; /* Par défaut, toutes les sections sont cachées */
+        }
+        #accueil{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button onclick="afficherSection('accueil')">Accueil</button>
+        <button onclick="afficherSection('services')">Services</button>
+        <button onclick="afficherSection('contact')">Contact</button>
+    </nav>
+
+    <div id="accueil" class="section">
+        <h2>Accueil</h2>
+        <p>Bienvenue sur notre site !</p>
+    </div>
+
+    <div id="services" class="section">
+        <h2>Nos Services</h2>
+        <p>Découvrez nos services professionnels.</p>
+        <div>
+            <h3>Secteur</h3>
+            <p>Information sur le secteur d'activité.</p>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Contactez-nous pour plus d'informations.</p>
+    </div>
+
+    <script>
+        function afficherSection(id) {
+            // Cacher toutes les sections
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+
+            // Afficher la section correspondante
+            document.getElementById(id).style.display = 'block';
+
+            // Si on clique sur Services, afficher aussi le Secteur
+            if (id === 'services') {
+                document.querySelector('#services div').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
